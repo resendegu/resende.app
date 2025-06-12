@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import './App.css';
 import profileImg from './assets/profile.png';
@@ -29,6 +29,12 @@ function App() {
 
   const [reveal, setReveal] = useState<{ x: number; y: number; active: boolean }>({ x: 0, y: 0, active: false });
   const imgFadeRef = useRef<HTMLDivElement>(null);
+  const [showFade, setShowFade] = useState(true);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setShowFade(false), 700);
+    return () => clearTimeout(timeout);
+  }, []);
 
   // Mouse/touch handlers for reveal effect
   const handleMove = (e: React.MouseEvent | React.TouchEvent) => {
@@ -71,13 +77,22 @@ function App() {
             src="https://avatars.githubusercontent.com/u/62570230?s=400&u=ab23399c76af171cbd8f533e1e4fb6fc3978d446&v=4"
             alt="Gustavo Resende Github"
             className="profile-img"
-            style={reveal.active ? {
+            style={showFade ? {
+              opacity: 1,
+              transition: 'opacity 0.7s',
+              zIndex: 3
+            } : reveal.active ? {
               WebkitMaskImage: `radial-gradient(circle 55px at ${reveal.x}px ${reveal.y}px, white 70%, transparent 100%)`,
               maskImage: `radial-gradient(circle 55px at ${reveal.x}px ${reveal.y}px, white 70%, transparent 100%)`,
               transition: 'mask-image 0.2s',
               opacity: 1,
               zIndex: 3
-            } : { opacity: 0, pointerEvents: 'none', transition: 'opacity 0.2s', zIndex: 3 }}
+            } : {
+              opacity: 0,
+              pointerEvents: 'none',
+              transition: 'opacity 0.2s',
+              zIndex: 3
+            }}
           />
         </div>
         
@@ -102,7 +117,7 @@ function App() {
       <span className="profile-greeting">{t('about.greeting')}</span>
       <section>
         <h2>{t('about.title')}</h2>
-        <p>{t('about.description')}</p>
+        <p className="about-desc">{t('about.description')}</p>
       </section>
       <section>
         <h2>{t('experience.title')}</h2>

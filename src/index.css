@@ -57,6 +57,10 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+body, h1, h2, h3, h4, h5, h6, p, a, span, button, input, textarea, li, ul, ol, div {
+  font-weight: 400 !important;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
