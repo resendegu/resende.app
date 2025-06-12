@@ -100,6 +100,7 @@ function App() {
     function resize() {
       width = window.innerWidth;
       height = window.innerHeight;
+      if (!canvas) return; // Fix TS: canvas is possibly null
       canvas.width = width;
       canvas.height = height;
       createStars();
