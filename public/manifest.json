@@ -1,0 +1,24 @@
+{
+  "name": "Gustavo Resende | Programador | Developer",
+  "short_name": "Resende.app",
+  "description": "DeveOps Engineer, projects, experience, and contact links.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/assets/site.ico",
+      "sizes": "48x48 72x72 96x96 128x128 256x256 512x512",
+      "type": "image/x-icon",
+      "purpose": "any"
+    },
+    {
+      "src": "https://avatars.githubusercontent.com/u/62570230?s=400&u=ab23399c76af171cbd8f533e1e4fb6fc3978d446&v=4",
+      "sizes": "400x400",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "lang": "en"
+}
