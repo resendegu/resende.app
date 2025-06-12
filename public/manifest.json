@@ -8,7 +8,7 @@
   "theme_color": "#000000",
   "icons": [
     {
-      "src": "/assets/site.ico",
+      "src": "/site.ico",
       "sizes": "48x48 72x72 96x96 128x128 256x256 512x512",
       "type": "image/x-icon",
       "purpose": "any"
