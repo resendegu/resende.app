@@ -340,6 +340,7 @@ function App() {
             <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/resendegu/" target="_blank" rel="noopener noreferrer">resendegu <span aria-label="external link" title="external link">↗</span></a></li>
             <li><span>Instagram</span><a href="https://instagram.com/resendegu" target="_blank" rel="noopener noreferrer">@resendegu <span aria-label="external link" title="external link">↗</span></a></li>
             <li><span>YouTube</span><a href="https://youtube.com/@resendegu" target="_blank" rel="noopener noreferrer">@resendegu <span aria-label="external link" title="external link">↗</span></a></li>
+            <li><span>Email</span><a href="mailto:gustavo@resende.app" target="_blank" rel="noopener noreferrer">gustavo@resende.app <span aria-label="external link" title="external link">↗</span></a></li>
           </ul>
         </section>
         <footer className="footer-easter-egg">
