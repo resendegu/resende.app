@@ -8,12 +8,14 @@ interface Job {
   period: string;
   description: string;
   stack: string;
+  link?: string;
 }
 
 interface Project {
   name: string;
   description: string;
   stack: string;
+  link?: string;
 }
 
 function App() {
@@ -97,10 +99,8 @@ function App() {
         </div>
         
         <div className="profile-info">
-          
           <h1>Gustavo Resende</h1>
           <p className="profile-title">{t('about.titleLine')}</p>
-          
         </div>
         <button
           className="lang-switcher-combo"
@@ -124,7 +124,13 @@ function App() {
         {jobs.map((job, idx) => (
           <div key={idx} className="job-block">
             <div className="job-header">
-              <span className="job-role">{job.role}</span>
+              {job.link ? (
+                <a href={job.link} target="_blank" rel="noopener noreferrer" className="job-role-link">
+                  <span className="job-role">{job.role}</span> <span aria-label="external link" title="external link">↗</span>
+                </a>
+              ) : (
+                <span className="job-role">{job.role}</span>
+              )}
               <span className="job-period">{job.period}</span>
             </div>
             <div className="job-desc">{job.description}</div>
@@ -137,7 +143,13 @@ function App() {
         <ul className="project-list">
           {projects.map((proj, idx) => (
             <li key={idx} className="project-block">
-              <div className="project-name">{proj.name}</div>
+              {proj.link ? (
+                <a href={proj.link} target="_blank" rel="noopener noreferrer" className="project-name-link">
+                  <div className="project-name">{proj.name} <span aria-label="external link" title="external link">↗</span></div>
+                </a>
+              ) : (
+                <div className="project-name">{proj.name}</div>
+              )}
               <div className="project-desc">{proj.description}</div>
               <div className="project-stack">{proj.stack}</div>
             </li>

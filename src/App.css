@@ -81,6 +81,18 @@ h1 {
   color: #8ecae6;
 }
 
+.job-role-link {
+  color: #8ecae6;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.job-role-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
 .job-period {
   color: #aaa;
   font-size: 0.95em;
@@ -108,6 +120,18 @@ h1 {
 .project-name {
   font-weight: bold;
   color: #8ecae6;
+}
+
+.project-name-link {
+  color: #8ecae6;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.project-name-link:hover {
+  color: #fff;
+  text-decoration: underline;
 }
 
 .project-desc {
@@ -184,7 +208,7 @@ h1 {
 .profile-title {
   font-size: 16px;
   color: rgb(193, 203, 218);
-  margin-top: 0.2rem;
+  margin-top: 0.05rem;
   font-weight: 400;
 }
 
