@@ -11,9 +11,11 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -22,6 +24,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -39,4 +42,357 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.resume-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  color: #fff;
+  background: transparent;
+  font-family: 'Oxygen', sans-serif;
+  text-align: left;
+}
+
+header {
+  margin-bottom: 2rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.job-block {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #333;
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+}
+
+.job-role {
+  color: #8ecae6;
+}
+
+.job-period {
+  color: #aaa;
+  font-size: 0.95em;
+}
+
+.job-desc {
+  margin-bottom: 0.2rem;
+}
+
+.job-stack {
+  color: #bdbdbd;
+  font-size: 0.95em;
+}
+
+.project-list {
+  list-style: none;
+  padding: 0;
+}
+
+.project-block {
+  margin-bottom: 1rem;
+}
+
+.project-name {
+  font-weight: bold;
+  color: #8ecae6;
+}
+
+.project-desc {
+  margin-bottom: 0.2rem;
+}
+
+.project-stack {
+  color: #bdbdbd;
+  font-size: 0.95em;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.profile-img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: #111;
+  object-fit: cover;
+  border: 4px solid #fff;
+  box-shadow: 0 0 0 4px #181c20;
+}
+
+.profile-img-fade {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  min-width: 110px;
+  min-height: 110px;
+  margin-right: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-img-fade .profile-img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: #111;
+  object-fit: cover;
+  border: 4px solid #fff;
+  box-shadow: 0 0 0 4px #181c20;
+  transition: opacity 1.2s ease;
+  opacity: 1;
+}
+
+.fade-img.fade-in {
+  opacity: 1;
+  z-index: 2;
+}
+.fade-img.fade-out {
+  opacity: 0;
+  z-index: 1;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.profile-title {
+  font-size: 1.3rem;
+  color: #bdbdbd;
+  margin-top: 0.2rem;
+  font-weight: 400;
+}
+
+.profile-greeting {
+  color: #bdbdbd;
+  font-size: 1.05em;
+  margin-bottom: 0.2em;
+  display: block;
+}
+
+.lang-switcher {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.lang-switcher button {
+  background: #181c20;
+  color: #fff;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 0.3em 1em;
+  font-family: 'Oxygen', sans-serif;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+
+.lang-switcher button.active,
+.lang-switcher button:hover {
+  background: #8ecae6;
+  color: #181c20;
+  border: 1px solid #8ecae6;
+}
+
+.lang-switcher-single {
+  margin-left: auto;
+  background: #181c20;
+  color: #fff;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 0.2em 0.7em;
+  font-family: 'Oxygen', sans-serif;
+  font-size: 0.95em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  height: 2.2em;
+  align-self: flex-start;
+}
+
+.lang-switcher-single:hover {
+  background: #8ecae6;
+  color: #181c20;
+  border: 1px solid #8ecae6;
+}
+
+.lang-switcher-dual {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  margin-left: auto;
+  height: 2.2em;
+}
+
+.lang-switcher-dual button {
+  background: #181c20;
+  color: #fff;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 0.1em 0.7em;
+  font-family: 'Oxygen', sans-serif;
+  font-size: 0.95em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s, font-size 0.2s;
+  min-width: 3.2em;
+}
+
+.lang-switcher-dual button.active {
+  background: #8ecae6;
+  color: #181c20;
+  border: 1px solid #8ecae6;
+  font-size: 1.15em;
+  cursor: default;
+}
+
+.lang-switcher-dual button:disabled {
+  cursor: default;
+  opacity: 0.8;
+}
+
+.lang-switcher-combo {
+  margin-left: auto;
+  background: #181c20;
+  color: #fff;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 0.1em 0.9em;
+  font-family: 'Oxygen', sans-serif;
+  font-size: 0.95em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  height: 2.2em;
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+}
+
+.lang-switcher-combo:hover {
+  background: #8ecae6;
+  color: #181c20;
+  border: 1px solid #8ecae6;
+}
+
+.lang-divider {
+  color: #bdbdbd;
+  font-size: 1.1em;
+  padding: 0 0.2em;
+  user-select: none;
+}
+
+.footer-easter-egg {
+  width: 100%;
+  text-align: center;
+  margin-top: 2.5rem;
+  color: #888;
+  font-size: 0.75em;
+  letter-spacing: 0.01em;
+  user-select: none;
+}
+
+.links-section {
+  margin-top: 2.5rem;
+}
+.links-section h2 {
+  font-size: 1.2em;
+  color: #bdbdbd;
+  margin-bottom: 0.7em;
+}
+.links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+.links-list li {
+  display: flex;
+  align-items: center;
+  gap: 1.2em;
+  font-size: 1em;
+}
+.links-list span {
+  min-width: 80px;
+  color: #8ecae6;
+  font-weight: 500;
+}
+.links-list a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.2s;
+}
+.links-list a:hover {
+  color: #8ecae6;
+  text-decoration: underline;
+}
+.links-list span[aria-label="external link"] {
+  font-size: 0.9em;
+  margin-left: 0.2em;
+}
+
+@media (max-width: 700px) {
+  .resume-container {
+    padding: 1rem 0.2rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .profile-img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .profile-img-fade {
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    min-height: 80px;
+  }
+  .profile-img-fade .profile-img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .profile-info h1 {
+    font-size: 1.5rem;
+  }
+
+  .lang-switcher-single {
+    margin-left: 0;
+    align-self: flex-end;
+    margin-top: 0.5rem;
+  }
 }

@@ -1,0 +1,46 @@
+{
+  "about": {
+    "title": "Sobre",
+    "description": "Olá, eu sou Gustavo, engenheiro DevOps, ás vezes programador (ou na verdade os dois ao mesmo tempo). Muito empolgado com nuvem, self-hosting e me arriscando no Kubernetes.",
+    "titleLine": "Programador",
+    "greeting": "Que legal que você tá aqui!!"
+  },
+  "experience": {
+    "title": "Experiência Profissional",
+    "jobs": [
+      {
+        "role": "Engenheiro DevOps - Cubos DevOps",
+        "period": "2024 – presente",
+        "description": "Colaborando com diversos clientes no time de DevOps, realizando gerenciamento de nuvem, analisando e subindo infraestrutura de novas aplicações, atuação em incidentes e troubleshooting, criações em módulos Terraform.",
+        "stack": "Kubernetes • AWS/GCP • Terraform • Docker"
+      },
+      {
+        "role": "Estagiário de Infraestrutura - Equifax | Boa Vista",
+        "period": "2022 – 2023",
+        "description": "Atuação no time de Infraestrutura, com foco em sistemas Linux e Windows, provisionamento de recursos em nuvem, automações de tarefas usando Python, Ansible e outras tecnologias, suporte técnico de nível 3. Tive a oportunidade trabalhar com a equipe internacional da Equifax na fusão com a Boa Vista.",
+        "stack": "GCP • Linux • Windows • Ansible • Suporte"
+      }
+    ]
+  },
+  "projects": {
+    "title": "Projetos",
+    "list": [
+      {
+        "name": "Sistema Escolar",
+        "description": "Sistema escolar open source voltado para cursos livres para gerenciamento de alunos, turmas, contratos. O projeto utiliza o Firebase para banco de dados e todo o Back-end, escrito em JavaScript com ReactJS.",
+        "stack": "ReactJS • JavaScript • Firebase"
+      },
+      {
+        "name": "OCS Inventory",
+        "description": "Projeto interno de estágio na Equifax | Boa Vista com o objetivo de provisionar uma instância do OCS Inventory e automatizar a instalação dos agentes nos servidores da empresa. Tive a oportunidade de subir do zero servidores Linux e Cloud SQL no GCP, além de criar automações usando Ansible e o AWX (Ansible Tower).",
+        "stack": "Ansible • GCP • Linux • Python"
+      }
+    ]
+  },
+  "footer": {
+    "easterEgg": "Sim, Super Choque é meu super-herói favorito."
+  },
+  "links": {
+    "title": "Links"
+  }
+}

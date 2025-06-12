@@ -1,0 +1,46 @@
+{
+  "about": {
+    "title": "About",
+    "description": "Hello, I'm Gustavo, a DevOps engineer, sometimes a developer (or actually both at the same time). Very excited about cloud, self-hosting, and experimenting with Kubernetes.",
+    "titleLine": "Developer",
+    "greeting": "It is amazing that you're here!!"
+  },
+  "experience": {
+    "title": "Professional Experience",
+    "jobs": [
+      {
+        "role": "DevOps Engineer - Cubos DevOps",
+        "period": "2024 – present",
+        "description": "Collaborating with several clients on the DevOps team, managing cloud environments, analyzing and deploying infrastructure for new applications, handling incidents and troubleshooting, and creating Terraform modules.",
+        "stack": "Kubernetes • AWS/GCP • Terraform • Docker"
+      },
+      {
+        "role": "Infrastructure Intern - Equifax | Boa Vista",
+        "period": "2022 – 2023",
+        "description": "Worked on the Infrastructure team, focusing on Linux and Windows systems, provisioning cloud resources, automating tasks using Python, Ansible, and other technologies, and providing level 3 technical support. Had the opportunity to work with the international Equifax team during the merger with Boa Vista.",
+        "stack": "GCP • Linux • Windows • Ansible • Support"
+      }
+    ]
+  },
+  "projects": {
+    "title": "Projects",
+    "list": [
+      {
+        "name": "School System",
+        "description": "Open source school system for free courses, designed for managing students, classes, and contracts. The project uses Firebase for the database and all backend, written in JavaScript with ReactJS.",
+        "stack": "ReactJS • JavaScript • Firebase"
+      },
+      {
+        "name": "OCS Inventory",
+        "description": "Internal internship project at Equifax | Boa Vista to provision an OCS Inventory instance and automate agent installation on company servers. Had the opportunity to set up Linux servers and Cloud SQL on GCP from scratch, as well as create automations using Ansible and AWX (Ansible Tower).",
+        "stack": "Ansible • GCP • Linux • Python"
+      }
+    ]
+  },
+  "footer": {
+    "easterEgg": "Yes, Static Shock is my favorite Super Hero."
+  },
+  "links": {
+    "title": "Links"
+  }
+}
