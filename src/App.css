@@ -438,4 +438,16 @@ h1 {
     align-self: flex-end;
     margin-top: 0.5rem;
   }
+
+  /* Make job-period appear above job-role in job-header */
+  .job-header {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 0.1em;
+  }
+  .job-period {
+    margin-bottom: 0.15em;
+    margin-top: 0;
+    align-self: flex-start;
+  }
 }
