@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import './App.css';
 import profileImg from './assets/profile.png';
@@ -27,31 +27,57 @@ function App() {
     setLang(nextLang);
   };
 
-  const [fade, setFade] = useState(false);
-  const fadeTimeout = useRef<number | null>(null);
+  const [reveal, setReveal] = useState<{ x: number; y: number; active: boolean }>({ x: 0, y: 0, active: false });
+  const imgFadeRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    fadeTimeout.current = window.setTimeout(() => setFade(true), 700);
-    return () => {
-      if (fadeTimeout.current) clearTimeout(fadeTimeout.current);
-    };
-  }, []);
+  // Mouse/touch handlers for reveal effect
+  const handleMove = (e: React.MouseEvent | React.TouchEvent) => {
+    let x = 0, y = 0;
+    if ('touches' in e && e.touches.length > 0) {
+      const rect = imgFadeRef.current?.getBoundingClientRect();
+      if (rect) {
+        x = e.touches[0].clientX - rect.left;
+        y = e.touches[0].clientY - rect.top;
+      }
+    } else if ('clientX' in e) {
+      const rect = imgFadeRef.current?.getBoundingClientRect();
+      if (rect) {
+        x = e.clientX - rect.left;
+        y = e.clientY - rect.top;
+      }
+    }
+    setReveal(r => ({ ...r, x, y, active: true }));
+  };
+  const handleLeave = () => setReveal(r => ({ ...r, active: false }));
 
   return (
     <main className="resume-container">
       <header className="profile-header">
-        <div className="profile-img-fade">
-          <img
-            src="https://avatars.githubusercontent.com/u/62570230?s=400&u=ab23399c76af171cbd8f533e1e4fb6fc3978d446&v=4"
-            alt="Gustavo Resende Github"
-            className={`profile-img fade-img ${fade ? 'fade-out' : 'fade-in'}`}
-            style={{ position: 'absolute', left: 0, top: 0 }}
-          />
+        <div
+          className="profile-img-fade"
+          ref={imgFadeRef}
+          onMouseMove={handleMove}
+          onMouseLeave={handleLeave}
+          onTouchMove={handleMove}
+          onTouchEnd={handleLeave}
+        >
           <img
             src={profileImg}
             alt="Gustavo Resende"
-            className={`profile-img fade-img ${fade ? 'fade-in' : 'fade-out'}`}
-            style={{ position: 'absolute', left: 0, top: 0 }}
+            className="profile-img"
+            style={{ position: 'absolute', left: 0, top: 0, zIndex: 2 }}
+          />
+          <img
+            src="https://avatars.githubusercontent.com/u/62570230?s=400&u=ab23399c76af171cbd8f533e1e4fb6fc3978d446&v=4"
+            alt="Gustavo Resende Github"
+            className="profile-img"
+            style={reveal.active ? {
+              WebkitMaskImage: `radial-gradient(circle 55px at ${reveal.x}px ${reveal.y}px, white 70%, transparent 100%)`,
+              maskImage: `radial-gradient(circle 55px at ${reveal.x}px ${reveal.y}px, white 70%, transparent 100%)`,
+              transition: 'mask-image 0.2s',
+              opacity: 1,
+              zIndex: 3
+            } : { opacity: 0, pointerEvents: 'none', transition: 'opacity 0.2s', zIndex: 3 }}
           />
         </div>
         
