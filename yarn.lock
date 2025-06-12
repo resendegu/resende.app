@@ -366,6 +366,11 @@
     "@eslint/core" "^0.15.0"
     levn "^0.4.1"
 
+"@fontsource/oxygen@^5.2.6":
+  version "5.2.6"
+  resolved "https://registry.yarnpkg.com/@fontsource/oxygen/-/oxygen-5.2.6.tgz#ac64784030809f47a6dc1d5da4451e0799d496ef"
+  integrity sha512-JRy8jGurqF4RfWQ9Q/bMmrVDGbZbVwn/Ms3oCy9XbZGAMrHlNsFRNL2enxrIsSVZUg+2VVDKQkb1xhm/jIusvw==
+
 "@humanfs/core@^0.19.1":
   version "0.19.1"
   resolved "https://registry.yarnpkg.com/@humanfs/core/-/core-0.19.1.tgz#17c55ca7d426733fe3c561906b8173c336b40a77"
