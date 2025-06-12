@@ -387,6 +387,17 @@ h1 {
   color: rgb(193, 203, 218);
 }
 
+.starfield-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  display: block;
+}
+
 @media (max-width: 700px) {
   .resume-container {
     padding: 1rem 0.2rem;
