@@ -84,6 +84,17 @@ function App() {
     let comet: Comet | null = null;
     let cometTrail: { x: number; y: number }[] = [];
 
+    // Lightning effect state
+    type Lightning = {
+      path: { x: number; y: number }[];
+      alpha: number;
+      flashAlpha: number;
+      timer: number;
+      x: number;
+      y: number;
+    };
+    const lightnings: Lightning[] = [];
+
     function randomStar(): Star {
       return {
         x: Math.random() * width,
@@ -182,9 +193,69 @@ function App() {
       }
     }
 
+    function spawnLightning() {
+      // Random horizontal position, from top to random Y (60-80% of height)
+      const x = Math.random() * width;
+      const yEnd = height * (0.6 + 0.2 * Math.random());
+      const segments = 18 + Math.floor(Math.random() * 8);
+      const path = [{ x, y: 0 }];
+      for (let i = 1; i <= segments; i++) {
+        const prev = path[i - 1];
+        // Each segment: mostly down, with some horizontal jitter
+        const nx = prev.x + (Math.random() - 0.5) * 32;
+        const ny = prev.y + (yEnd / segments) * (0.85 + Math.random() * 0.3);
+        path.push({ x: nx, y: ny });
+      }
+      lightnings.push({
+        path,
+        alpha: 1,
+        flashAlpha: 0.45 + Math.random() * 0.25,
+        timer: 0,
+        x,
+        y: yEnd,
+      });
+    }
+
+    function drawLightning(ctx: CanvasRenderingContext2D, l: Lightning) {
+      // Draw flash
+      if (l.flashAlpha > 0.01) {
+        const flashRadius = 110 + Math.random() * 40;
+        const grad = ctx.createRadialGradient(l.x, l.y, 0, l.x, l.y, flashRadius);
+        grad.addColorStop(0, `rgba(180,210,255,${l.flashAlpha})`); // more blue
+        grad.addColorStop(0.5, `rgba(120,180,255,${l.flashAlpha * 0.5})`); // more blue
+        grad.addColorStop(1, 'rgba(120,180,255,0)');
+        ctx.save();
+        ctx.globalAlpha = 1;
+        ctx.beginPath();
+        ctx.arc(l.x, l.y, flashRadius, 0, 2 * Math.PI);
+        ctx.fillStyle = grad;
+        ctx.fill();
+        ctx.restore();
+      }
+      // Draw bolt
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(l.path[0].x, l.path[0].y);
+      for (let i = 1; i < l.path.length; i++) {
+        ctx.lineTo(l.path[i].x, l.path[i].y);
+      }
+      ctx.strokeStyle = `rgba(120,180,255,${l.alpha})`; // more blue
+      ctx.shadowColor = '#7ecbff'; // more blue
+      ctx.shadowBlur = 22;
+      ctx.lineWidth = 2.2 + Math.random() * 0.7;
+      ctx.globalAlpha = 1;
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+      ctx.restore();
+    }
+
     function animate() {
       if (!ctx) return;
       ctx.clearRect(0, 0, width, height);
+      // Lightning: draw flashes first (so they go under stars)
+      for (const l of lightnings) {
+        drawLightning(ctx, l);
+      }
       for (const star of stars) {
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.r, 0, 2 * Math.PI);
@@ -204,6 +275,18 @@ function App() {
       if (comet) {
         updateComet();
         drawComet(ctx);
+      }
+      // Lightning: update state and remove faded
+      for (let i = lightnings.length - 1; i >= 0; i--) {
+        const l = lightnings[i];
+        l.timer++;
+        if (l.timer > 4) l.alpha *= 0.78; // fade bolt slower
+        if (l.timer > 2) l.flashAlpha *= 0.78; // fade flash slower
+        if (l.alpha < 0.03 && l.flashAlpha < 0.03) lightnings.splice(i, 1);
+      }
+      // Maybe spawn new lightning (very rare)
+      if (Math.random() < 0.05 / 60) {
+        spawnLightning();
       }
       if (running) animationId = requestAnimationFrame(animate);
     }
